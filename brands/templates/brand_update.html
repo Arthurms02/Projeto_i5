@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Editar Marca
+{% endblock %}
+
+{% block content %}
+
+<div class="container">
+     <h2 class="my-4">Editar Marca</h2>
+     <form method="post">
+        {%csrf_token %}
+        {{ form.as_p }}
+     </form>
+     <button type="submit" class="btn btn-primary">Salvar Alterações</button>
+     <a href="{% url 'brand-list' %}" class="btn btn-secondary">Cancelar</a>
+</div>
+
+{% endblock %}

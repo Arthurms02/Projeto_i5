@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Confirmar Exclusão
+{% endblock %}
+
+{% block content %}
+
+<div class="container text-center">
+    <h2 class="my-4">Tem certeza que deseja excluir essa marca {{ brand.name }} </h2>
+    <form method="post">
+        {% csrf_token %}
+        <button type="submit" class="btn btn-danger">Sim, Excluir</button>
+        <a href="{% url 'brand-list' %}" class="btn btn-secondary">Cancelar</a>
+    </form>
+</div>
+
+{% endblock %}
