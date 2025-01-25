@@ -1,7 +1,8 @@
 from django.views.generic import ListView, CreateView, DetailView, UpdateView, DeleteView
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.urls import reverse_lazy
-from . import models, forms
+from . import models, forms, serializers
+from rest_framework import generics
 
 
 class ProductListView(LoginRequiredMixin, ListView):
@@ -45,3 +46,11 @@ class ProductDeleteView(LoginRequiredMixin, DeleteView):
     success_url = reverse_lazy('product-list')
     context_object_name = 'product'
 
+class ProductCreatedListAPIView(generics.ListCreateAPIView):
+    queryset = models.Product.objects.all()
+    serializer_class = serializers.ProductSerializer
+
+
+class ProductRetriverUpdateDestroyAPIView(generics.RetrieveUpdateDestroyAPIView):
+    queryset = models.Product.objects.all()
+    serializer_class = serializers.ProductSerializer

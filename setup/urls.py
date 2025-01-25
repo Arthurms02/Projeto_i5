@@ -30,4 +30,5 @@ urlpatterns = [
     path('', home, name='home'),
     path('', include('brands.urls')),
     path('', include('products.urls')),
+    path('', include('categories.urls')),
 ]

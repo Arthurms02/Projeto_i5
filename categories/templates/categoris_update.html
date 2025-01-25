@@ -7,13 +7,13 @@ Editar Marca
 {% block content %}
 
 <div class="container">
-     <h2 class="my-4">Editar Marca</h2>
+     <h2 class="my-4">Editar Categoria</h2>
      <form method="post">
         {%csrf_token %}
         {{ form.as_p }}
+        <button type="submit" class="btn btn-primary">Salvar Alterações</button>
+        <a href="{% url 'categori-list' %}" class="btn btn-secondary">Cancelar</a>
      </form>
-     <button type="submit" class="btn btn-primary">Salvar Alterações</button>
-     <a href="{% url 'brand-list' %}" class="btn btn-secondary">Cancelar</a>
 </div>
 
 {% endblock %}
